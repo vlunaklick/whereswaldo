@@ -2,8 +2,19 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import HeaderPage from './component/header/Header'
+import { useState } from 'react'
 
 function App() {
+	let [wallyFound, changeWallyFind] = useState(false)
+	let [wilmaFound, changeWilmaFound] = useState(false)
+	let [wizardFound, changeWizardFound] = useState(false)
+
+	const restartGame = () => {
+		changeWallyFind(false)
+		changeWilmaFound(false)
+		changeWizardFound(false)
+	}
+
 	const correctMsg = value => {
 		toast.success(`Congrats you have found ${value} `, {
 			position: 'top-center',
@@ -41,7 +52,11 @@ function App() {
 				pauseOnHover={false}
 				limit={1}
 			/>
-			<HeaderPage />
+			<HeaderPage
+				wallyFind={wallyFound}
+				wilmaFind={wilmaFound}
+				wizardFind={wizardFound}
+			/>
 		</div>
 	)
 }

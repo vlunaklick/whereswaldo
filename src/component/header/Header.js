@@ -1,19 +1,22 @@
 import React from 'react'
+import { convertSeconds } from '../../helpers/converterSecons'
 import wally from '../../images/wally.png'
 import wilma from '../../images/wilma.png'
 import wizard from '../../images/wizard.gif'
 import './Header.css'
 
 const HeaderPage = ({
-	timer = '00:00',
+	timer = 0,
 	wallyFind = false,
 	wilmaFind = false,
 	wizardFind = false,
 }) => {
+	let timerGood = convertSeconds(timer)
+
 	return (
 		<header className='header-container'>
 			<h1 className='header-title'>Where's Waldo?</h1>
-			<p className='header-timer'>{timer}</p>
+			<p className='header-timer'>{timerGood}</p>
 			<div className='header-images-container'>
 				<img
 					className={
