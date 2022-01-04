@@ -1,5 +1,5 @@
 import React from 'react'
-import { convertSeconds } from '../../helpers/converterSecons'
+import { convertSeconds } from '../../helpers/converterSeconds'
 import wally from '../../images/wally.png'
 import wilma from '../../images/wilma.png'
 import wizard from '../../images/wizard.gif'

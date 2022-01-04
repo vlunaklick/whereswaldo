@@ -3,16 +3,20 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import HeaderPage from './component/header/Header'
 import { useState } from 'react'
+import useTimer from './hooks/useTimer'
 
 function App() {
 	let [wallyFound, changeWallyFind] = useState(false)
 	let [wilmaFound, changeWilmaFound] = useState(false)
 	let [wizardFound, changeWizardFound] = useState(false)
 
+	let [timer, start, stop, reset] = useTimer(0)
+
 	const restartGame = () => {
 		changeWallyFind(false)
 		changeWilmaFound(false)
 		changeWizardFound(false)
+		reset()
 	}
 
 	const correctMsg = value => {
@@ -38,6 +42,7 @@ function App() {
 			progress: undefined,
 		})
 	}
+
 	return (
 		<div className='container-app'>
 			<ToastContainer
@@ -53,6 +58,7 @@ function App() {
 				limit={1}
 			/>
 			<HeaderPage
+				timer={timer}
 				wallyFind={wallyFound}
 				wilmaFind={wilmaFound}
 				wizardFind={wizardFound}
