@@ -15,7 +15,7 @@ function App() {
 
 	let [imageClicked, changeImageClicked] = useState(false)
 
-	let [wallyFound, changeWallyFind] = useState(false)
+	let [wallyFound, changeWallyFound] = useState(false)
 	let [wilmaFound, changeWilmaFound] = useState(false)
 	let [wizardFound, changeWizardFound] = useState(false)
 
@@ -31,7 +31,7 @@ function App() {
 	let [timer, start, stop, reset] = useTimer(0)
 
 	const restartGame = () => {
-		changeWallyFind(false)
+		changeWallyFound(false)
 		changeWilmaFound(false)
 		changeWizardFound(false)
 		reset()
@@ -74,6 +74,7 @@ function App() {
 	const checkClickWally = (top, left) => {
 		if (checkIfHit(top, left, wallyArray)) {
 			correctMsg('Wally')
+			changeWallyFound(true)
 		} else {
 			errorMsg()
 		}
@@ -84,6 +85,7 @@ function App() {
 	const checkClickWilma = (top, left) => {
 		if (checkIfHit(top, left, wilmaArray)) {
 			correctMsg('Wilma')
+			changeWilmaFound(true)
 		} else {
 			errorMsg()
 		}
@@ -94,6 +96,7 @@ function App() {
 	const checkClickWizard = (top, left) => {
 		if (checkIfHit(top, left, wizardArray)) {
 			correctMsg('the Wizard')
+			changeWizardFound(true)
 		} else {
 			errorMsg()
 		}
@@ -117,32 +120,32 @@ function App() {
 					changeImgSrc(place.map.stringValue)
 					changeWallyArray([
 						[
-							place.wally.arrayValue.values[0],
-							place.wally.arrayValue.values[1],
+							place.wally.arrayValue.values[0].integerValue,
+							place.wally.arrayValue.values[1].integerValue,
 						],
 						[
-							place.wally.arrayValue.values[2],
-							place.wally.arrayValue.values[3],
+							place.wally.arrayValue.values[2].integerValue,
+							place.wally.arrayValue.values[3].integerValue,
 						],
 					])
 					changeWilmaArray([
 						[
-							place.wilma.arrayValue.values[0],
-							place.wilma.arrayValue.values[1],
+							place.wilma.arrayValue.values[0].integerValue,
+							place.wilma.arrayValue.values[1].integerValue,
 						],
 						[
-							place.wilma.arrayValue.values[2],
-							place.wilma.arrayValue.values[3],
+							place.wilma.arrayValue.values[2].integerValue,
+							place.wilma.arrayValue.values[3].integerValue,
 						],
 					])
 					changeWizardArray([
 						[
-							place.wizard.arrayValue.values[0],
-							place.wizard.arrayValue.values[1],
+							place.wizard.arrayValue.values[0].integerValue,
+							place.wizard.arrayValue.values[1].integerValue,
 						],
 						[
-							place.wizard.arrayValue.values[2],
-							place.wizard.arrayValue.values[3],
+							place.wizard.arrayValue.values[2].integerValue,
+							place.wizard.arrayValue.values[3].integerValue,
 						],
 					])
 				})
