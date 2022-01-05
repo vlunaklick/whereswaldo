@@ -18,6 +18,10 @@ function App() {
 	let [wilmaFound, changeWilmaFound] = useState(false)
 	let [wizardFound, changeWizardFound] = useState(false)
 
+	let [wallyArray, changeWallyArray] = useState([])
+	let [wilmaArray, changeWilmaArray] = useState([])
+	let [wizardArray, changeWizardArray] = useState([])
+
 	let [record, changeRecord] = useState(false)
 
 	let [showHigh, changeShowHigh] = useState(false)
@@ -69,9 +73,38 @@ function App() {
 			.get()
 			.then(maps => {
 				maps.forEach(map => {
-					changeImgSrc(
-						map._delegate._document.data.value.mapValue.fields.map.stringValue
-					)
+					let place = map._delegate._document.data.value.mapValue.fields
+					changeImgSrc(place.map.stringValue)
+					changeWallyArray([
+						[
+							place.wally.arrayValue.values[0],
+							place.wally.arrayValue.values[1],
+						],
+						[
+							place.wally.arrayValue.values[2],
+							place.wally.arrayValue.values[3],
+						],
+					])
+					changeWilmaArray([
+						[
+							place.wilma.arrayValue.values[0],
+							place.wilma.arrayValue.values[1],
+						],
+						[
+							place.wilma.arrayValue.values[2],
+							place.wilma.arrayValue.values[3],
+						],
+					])
+					changeWizardArray([
+						[
+							place.wizard.arrayValue.values[0],
+							place.wizard.arrayValue.values[1],
+						],
+						[
+							place.wizard.arrayValue.values[2],
+							place.wizard.arrayValue.values[3],
+						],
+					])
 				})
 			})
 	}, [])
@@ -104,6 +137,9 @@ function App() {
 				source={imgSrc}
 				clicked={imageClicked}
 				activateClick={changeImageClicked}
+				wallyFind={wallyFound}
+				wilmaFind={wilmaFound}
+				wizardFind={wizardFound}
 			/>
 
 			<HighscoreTable

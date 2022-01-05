@@ -35,19 +35,6 @@
     background-color: #BCCCDC;
 }
 
-.character-first{
-    border-bottom: .5px solid #9FB3C8;
-}
-
-.character-second{
-    border-bottom: .5px solid #9FB3C8;
-    border-top: .5px solid #9FB3C8;
-}
-
-.character-last{
-    border-top: .5px solid #9FB3C8;
-}
-
 @keyframes opacityAppear {
     from{
         opacity: 0;
