@@ -2,12 +2,16 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import HeaderPage from './component/header/Header'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useTimer from './hooks/useTimer'
 import HighscoreTable from './component/highscoreTable/HighscoreTable'
 import NewGame from './component/newGame/NewGame'
+import ImageGame from './component/ImageGame/ImageGame'
+import db from './firebase/config'
 
 function App() {
+	let [imgSrc, changeImgSrc] = useState('')
+
 	let [wallyFound, changeWallyFind] = useState(false)
 	let [wilmaFound, changeWilmaFound] = useState(false)
 	let [wizardFound, changeWizardFound] = useState(false)
@@ -58,6 +62,18 @@ function App() {
 		start()
 	}
 
+	useEffect(() => {
+		db.collection('maps')
+			.get()
+			.then(maps => {
+				maps.forEach(map => {
+					changeImgSrc(
+						map._delegate._document.data.value.mapValue.fields.map.stringValue
+					)
+				})
+			})
+	}, [])
+
 	return (
 		<div className='container-app'>
 			<ToastContainer
@@ -81,6 +97,8 @@ function App() {
 			/>
 
 			<NewGame starting={startGame} showing={showStart} />
+
+			<ImageGame source={imgSrc} />
 
 			<HighscoreTable
 				timer={timer}

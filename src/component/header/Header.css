@@ -10,6 +10,9 @@
     padding: 0.5rem;
     background-color: var(--header-container-bg);
     justify-content: space-around;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 .header-timer{
@@ -46,5 +49,8 @@
     }
     .header-images-image{
         height: 40px;
+    }
+    .header-container{
+        position: fixed;
     }
 }

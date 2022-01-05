@@ -12,15 +12,12 @@ const firebaseConfig = {
 
 	messagingSenderId: '46171214780',
 
-	appId: '1:46171214780:web:58f7d2141a8bd792d551b9',
+	appId: '1:46171214780:web:3f6b2d777a01c764d551b9',
 
-	measurementId: 'G-80QL73565T',
+	measurementId: 'G-1GJW94YH9D',
 }
-
 firebase.initializeApp(firebaseConfig)
 
-const firestore = firebase.firestore()
-
-const db = firestore.getFirestore()
+const db = firebase.firestore()
 
 export default db
