@@ -14,9 +14,7 @@ const ClickedScreen = ({
 		<div className='clicked-screen' style={style}>
 			<div className='list-characters'>
 				{!wallyFind ? (
-					<p
-						className='character-click'
-						onClick={e => clickWally(e.clientY, e.clientX)}>
+					<p className='character-click' onClick={e => clickWally()}>
 						Wally
 					</p>
 				) : (
@@ -24,9 +22,7 @@ const ClickedScreen = ({
 				)}
 
 				{!wizardFind ? (
-					<p
-						className='character-click'
-						onClick={e => clickWizard(e.clientY, e.clientX)}>
+					<p className='character-click' onClick={e => clickWizard()}>
 						Wizard
 					</p>
 				) : (
@@ -34,9 +30,7 @@ const ClickedScreen = ({
 				)}
 
 				{!wilmaFind ? (
-					<p
-						className='character-click'
-						onClick={e => clickWilma(e.clientY, e.clientX)}>
+					<p className='character-click' onClick={e => clickWilma()}>
 						Wilma
 					</p>
 				) : (

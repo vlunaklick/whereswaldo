@@ -1,28 +1,20 @@
 import React from 'react'
 import './ImageGame.css'
 import ClickedScreen from '../ClickedScreen/ClickedScreen'
-import { useState } from 'react'
 
 const ImageGame = ({
 	source,
 	clicked,
-	activateClick,
+	madeClick,
 	wallyFind,
 	wilmaFind,
 	wizardFind,
 	clickWally,
 	clickWilma,
 	clickWizard,
+	topValue,
+	leftValue,
 }) => {
-	let [topValue, changeTopValue] = useState(0)
-	let [leftValue, changeLeftValue] = useState(0)
-
-	const madeClick = e => {
-		activateClick(prevState => !prevState)
-		changeTopValue(e.clientY)
-		changeLeftValue(e.clientX)
-	}
-
 	let style = {
 		left: leftValue,
 		top: topValue,
@@ -44,6 +36,7 @@ const ImageGame = ({
 				''
 			)}
 			<img
+				id='image'
 				className='image-image'
 				src={source}
 				alt=''

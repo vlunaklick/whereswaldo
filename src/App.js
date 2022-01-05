@@ -30,6 +30,15 @@ function App() {
 
 	let [timer, start, stop, reset] = useTimer(0)
 
+	let [topValue, changeTopValue] = useState(0)
+	let [leftValue, changeLeftValue] = useState(0)
+
+	const madeClick = e => {
+		changeImageClicked(prevState => !prevState)
+		changeTopValue(e.clientY)
+		changeLeftValue(e.clientX)
+	}
+
 	const restartGame = () => {
 		changeWallyFound(false)
 		changeWilmaFound(false)
@@ -71,8 +80,8 @@ function App() {
 		start()
 	}
 
-	const checkClickWally = (top, left) => {
-		if (checkIfHit(top, left, wallyArray)) {
+	const checkClickWally = () => {
+		if (checkIfHit(topValue, leftValue, wallyArray)) {
 			correctMsg('Wally')
 			changeWallyFound(true)
 		} else {
@@ -81,8 +90,8 @@ function App() {
 		changeImageClicked(false)
 	}
 
-	const checkClickWilma = (top, left) => {
-		if (checkIfHit(top, left, wilmaArray)) {
+	const checkClickWilma = () => {
+		if (checkIfHit(topValue, leftValue, wilmaArray)) {
 			correctMsg('Wilma')
 			changeWilmaFound(true)
 		} else {
@@ -91,8 +100,8 @@ function App() {
 		changeImageClicked(false)
 	}
 
-	const checkClickWizard = (top, left) => {
-		if (checkIfHit(top, left, wizardArray)) {
+	const checkClickWizard = () => {
+		if (checkIfHit(topValue, leftValue, wizardArray)) {
 			correctMsg('the Wizard')
 			changeWizardFound(true)
 		} else {
@@ -160,13 +169,15 @@ function App() {
 			<ImageGame
 				source={imgSrc}
 				clicked={imageClicked}
-				activateClick={changeImageClicked}
 				wallyFind={wallyFound}
 				wilmaFind={wilmaFound}
 				wizardFind={wizardFound}
 				clickWally={checkClickWally}
 				clickWilma={checkClickWilma}
 				clickWizard={checkClickWizard}
+				madeClick={madeClick}
+				topValue={topValue}
+				leftValue={leftValue}
 			/>
 
 			<HighscoreTable
