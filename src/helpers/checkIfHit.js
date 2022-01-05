@@ -4,9 +4,14 @@ const checkIfHit = (top, left, array) => {
 	let firstTrue = false,
 		secondTrue = false
 
+	let scroll = window.scrollY
+
+	let topValue = top
+
+	if (scroll > 0) topValue = top + scroll
 	if (
-		top >= threeRule(parseInt(array[0]), 'height') - 40 &&
-		threeRule(parseInt(array[0]), 'height') + 40 >= top
+		topValue >= threeRule(parseInt(array[0]), 'height') - 40 &&
+		threeRule(parseInt(array[0]), 'height') + 40 >= topValue
 	) {
 		firstTrue = true
 	}
