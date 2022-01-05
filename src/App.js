@@ -4,11 +4,16 @@ import 'react-toastify/dist/ReactToastify.css'
 import HeaderPage from './component/header/Header'
 import { useState } from 'react'
 import useTimer from './hooks/useTimer'
+import HighscoreTable from './component/highscoreTable/HighscoreTable'
 
 function App() {
 	let [wallyFound, changeWallyFind] = useState(false)
 	let [wilmaFound, changeWilmaFound] = useState(false)
 	let [wizardFound, changeWizardFound] = useState(false)
+
+	let [record, changeRecord] = useState(false)
+
+	let [showHigh, changeShowHigh] = useState(true)
 
 	let [timer, start, stop, reset] = useTimer(0)
 
@@ -17,6 +22,7 @@ function App() {
 		changeWilmaFound(false)
 		changeWizardFound(false)
 		reset()
+		changeShowHigh(false)
 	}
 
 	const correctMsg = value => {
@@ -62,6 +68,12 @@ function App() {
 				wallyFind={wallyFound}
 				wilmaFind={wilmaFound}
 				wizardFind={wizardFound}
+			/>
+			<HighscoreTable
+				timer={timer}
+				restartGame={restartGame}
+				showing={showHigh}
+				record={record}
 			/>
 		</div>
 	)

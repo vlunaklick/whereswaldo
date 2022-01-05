@@ -1,0 +1,122 @@
+:root{
+    --background-color-all: #102a43c7;
+    --background-color-container: #ffffff;
+    --container-border: #e3eaf1;
+    --division-border: #f1f4f7;
+    --btn-bg: #14919B;
+    --btn-hover: #044E54;
+    --btn-color: #ffffff;
+
+    --high-input-bg: #2CB1BC;
+    --high-input-border: #0E7C86;
+    --high-input-font: #ffffff;
+
+    --shadow-color-highscore: 211deg 30% 18%;
+    --shadow-elevation-medium-highscore:
+    0px 0.6px 0.7px hsl(var(--shadow-color-highscore) / 0.36),
+    0px 1.9px 2.1px -0.8px hsl(var(--shadow-color-highscore) / 0.36),
+    -0.1px 4.8px 5.4px -1.7px hsl(var(--shadow-color-highscore) / 0.36),
+    -0.1px 11.8px 13.3px -2.5px hsl(var(--shadow-color-highscore) / 0.36);
+    --shadow-elevation-low-highscore:
+    0px 0.6px 0.7px hsl(var(--shadow-color-highscore) / 0.34),
+    0px 1px 1.1px -1.2px hsl(var(--shadow-color-highscore) / 0.34),
+    0px 2.4px 2.7px -2.5px hsl(var(--shadow-color-highscore) / 0.34);
+
+}
+
+.highscore-background{
+    position: fixed;
+    background-color: var(--background-color-all);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity .5s ease-in;
+}
+
+.highscore-background-show{
+    opacity: 1;
+}
+
+.highscore-container{
+    background-color: var(--background-color-container);
+    border: 3px solid var(--container-border);
+    border-radius: 5px;
+    width: 350px;
+    height: 350px;
+    box-shadow: var(--shadow-elevation-medium-highscore);
+    display: flex;
+    padding: 1rem;
+}
+
+.highscore-rigth-textyour,
+.highscore-left-title{
+    font-size: 1.2rem ;
+}
+
+.highscore-left{
+    border-right: 2px solid var(--division-border);
+}
+
+.highscore-rigth,
+.highscore-left{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.highscore-btn-restart{
+    border: none;
+    outline: none;
+    color: var(--btn-color);
+    background-color: var(--btn-bg);
+    transition: background-color .2s ease-in,
+    box-shadow .2s ease-in;
+    width: 100px;
+    height: 35px;
+    cursor: pointer
+}
+
+.highscore-btn-restart:hover{
+    background-color: var(--btn-hover);
+    box-shadow: var(--shadow-elevation-low-highscore);
+}
+
+.highscore-rigth-input{
+    width: 100px;
+    outline: none;
+    border: none;
+    cursor: text;
+    background-color: var(--high-input-bg);
+    border-bottom: 2px solid var(--high-input-border);
+    color: var(--high-input-font);
+    text-align: center;
+    transition: box-shadow 1s ease-in;
+}
+
+.highscore-rigth-input:focus{
+    box-shadow: var(--shadow-elevation-low-highscore);
+}
+
+.highscore-rigth-add{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.highscore-rigth-combo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highscore-rigth-label{
+    font-size: 1.1rem;
+    font-weight: 600;
+}

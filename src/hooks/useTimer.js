@@ -6,7 +6,7 @@ export default function useTimer(time = 0) {
 
 	const start = () => {
 		countRef.current = setInterval(() => {
-			setTimer(timer => timer + 1)
+			setTimer(prevState => prevState + 1)
 		}, 1000)
 	}
 
