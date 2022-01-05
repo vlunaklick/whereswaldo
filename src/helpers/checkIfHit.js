@@ -4,8 +4,6 @@ const checkIfHit = (top, left, array) => {
 	let firstTrue = false,
 		secondTrue = false
 
-	console.log(array)
-
 	if (
 		top >= threeRule(parseInt(array[0]), 'height') - 40 &&
 		threeRule(parseInt(array[0]), 'height') + 40 >= top
