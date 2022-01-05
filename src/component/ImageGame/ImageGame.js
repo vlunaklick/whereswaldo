@@ -10,6 +10,9 @@ const ImageGame = ({
 	wallyFind,
 	wilmaFind,
 	wizardFind,
+	clickWally,
+	clickWilma,
+	clickWizard,
 }) => {
 	let [topValue, changeTopValue] = useState(0)
 	let [leftValue, changeLeftValue] = useState(0)
@@ -33,6 +36,9 @@ const ImageGame = ({
 					wallyFind={wallyFind}
 					wilmaFind={wilmaFind}
 					wizardFind={wizardFind}
+					clickWally={clickWally}
+					clickWilma={clickWilma}
+					clickWizard={clickWizard}
 				/>
 			) : (
 				''

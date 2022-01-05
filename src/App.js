@@ -8,6 +8,7 @@ import HighscoreTable from './component/highscoreTable/HighscoreTable'
 import NewGame from './component/newGame/NewGame'
 import ImageGame from './component/ImageGame/ImageGame'
 import db from './firebase/config'
+import checkIfHit from './helpers/checkIfHit'
 
 function App() {
 	let [imgSrc, changeImgSrc] = useState('')
@@ -34,6 +35,7 @@ function App() {
 		changeWilmaFound(false)
 		changeWizardFound(false)
 		reset()
+		changeImageClicked(false)
 		changeRecord(false)
 		changeShowHigh(false)
 		changeShowStart(true)
@@ -65,7 +67,45 @@ function App() {
 
 	const startGame = () => {
 		changeShowStart(false)
+		changeImageClicked(false)
 		start()
+	}
+
+	const checkClickWally = (top, left) => {
+		if (checkIfHit(top, left, wallyArray)) {
+			correctMsg('Wally')
+		} else {
+			errorMsg()
+		}
+		changeImageClicked(false)
+		checkEnd()
+	}
+
+	const checkClickWilma = (top, left) => {
+		if (checkIfHit(top, left, wilmaArray)) {
+			correctMsg('Wilma')
+		} else {
+			errorMsg()
+		}
+		changeImageClicked(false)
+		checkEnd()
+	}
+
+	const checkClickWizard = (top, left) => {
+		if (checkIfHit(top, left, wizardArray)) {
+			correctMsg('the Wizard')
+		} else {
+			errorMsg()
+		}
+		changeImageClicked(false)
+		checkEnd()
+	}
+
+	const checkEnd = () => {
+		if (wallyFound && wilmaFound && wizardFound) {
+			stop()
+			changeShowHigh(true)
+		}
 	}
 
 	useEffect(() => {
@@ -140,6 +180,9 @@ function App() {
 				wallyFind={wallyFound}
 				wilmaFind={wilmaFound}
 				wizardFind={wizardFound}
+				clickWally={checkClickWally}
+				clickWilma={checkClickWilma}
+				clickWizard={checkClickWizard}
 			/>
 
 			<HighscoreTable
