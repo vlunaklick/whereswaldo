@@ -12,6 +12,8 @@ import db from './firebase/config'
 function App() {
 	let [imgSrc, changeImgSrc] = useState('')
 
+	let [imageClicked, changeImageClicked] = useState(false)
+
 	let [wallyFound, changeWallyFind] = useState(false)
 	let [wilmaFound, changeWilmaFound] = useState(false)
 	let [wizardFound, changeWizardFound] = useState(false)
@@ -98,7 +100,11 @@ function App() {
 
 			<NewGame starting={startGame} showing={showStart} />
 
-			<ImageGame source={imgSrc} />
+			<ImageGame
+				source={imgSrc}
+				clicked={imageClicked}
+				activateClick={changeImageClicked}
+			/>
 
 			<HighscoreTable
 				timer={timer}
