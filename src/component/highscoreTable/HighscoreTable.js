@@ -65,9 +65,9 @@ const HighscoreTable = ({
 export default HighscoreTable
 
 let arrayTest = [
-	['LUC', 15],
-	['VAL', 117],
-	['AGS', 189],
-	['ANG', 56],
-	['ELI', 70],
+	['VYA', 1687],
+	['VYA', 1687],
+	['VYA', 1687],
+	['VYA', 1687],
+	['VYA', 1687],
 ]

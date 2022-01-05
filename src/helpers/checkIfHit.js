@@ -1,17 +1,28 @@
+import threeRule from './threeRule'
+
 const checkIfHit = (top, left, array) => {
 	let firstTrue = false,
 		secondTrue = false
 
-	if (top > parseInt(array[1][0]) - 40 && parseInt(array[1][1]) + 40 > top) {
+	if (
+		top > threeRule(parseInt(array[0]), window.innerWidth) - 25 &&
+		threeRule(parseInt(array[0]), window.innerWidth) + 25 > top
+	) {
 		firstTrue = true
 	}
 
 	if (
-		left - 31 > parseInt(array[0][0] - 25) &&
-		parseInt(array[0][1]) + 25 > left - 31
+		left > threeRule(parseInt(array[1]), window.innerWidth) - 25 &&
+		threeRule(parseInt(array[1]), window.innerWidth) + 25 > left
 	) {
 		secondTrue = true
 	}
+
+	console.log(threeRule(parseInt(array[0]), window.innerWidth))
+	console.log(threeRule(parseInt(array[1]), window.innerWidth))
+
+	console.log(top)
+	console.log(left)
 
 	if (firstTrue && secondTrue) return true
 	return false

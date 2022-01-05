@@ -118,34 +118,16 @@ function App() {
 					let place = map._delegate._document.data.value.mapValue.fields
 					changeImgSrc(place.map.stringValue)
 					changeWallyArray([
-						[
-							place.wally.arrayValue.values[0].integerValue,
-							place.wally.arrayValue.values[1].integerValue,
-						],
-						[
-							place.wally.arrayValue.values[2].integerValue,
-							place.wally.arrayValue.values[3].integerValue,
-						],
+						place.wally.arrayValue.values[0].integerValue,
+						place.wally.arrayValue.values[1].integerValue,
 					])
 					changeWilmaArray([
-						[
-							place.wilma.arrayValue.values[0].integerValue,
-							place.wilma.arrayValue.values[1].integerValue,
-						],
-						[
-							place.wilma.arrayValue.values[2].integerValue,
-							place.wilma.arrayValue.values[3].integerValue,
-						],
+						place.wilma.arrayValue.values[0].integerValue,
+						place.wilma.arrayValue.values[1].integerValue,
 					])
 					changeWizardArray([
-						[
-							place.wizard.arrayValue.values[0].integerValue,
-							place.wizard.arrayValue.values[1].integerValue,
-						],
-						[
-							place.wizard.arrayValue.values[2].integerValue,
-							place.wizard.arrayValue.values[3].integerValue,
-						],
+						place.wizard.arrayValue.values[0].integerValue,
+						place.wizard.arrayValue.values[1].integerValue,
 					])
 				})
 			})
