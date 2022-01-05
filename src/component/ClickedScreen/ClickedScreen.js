@@ -26,7 +26,9 @@ const ClickedScreen = ({
 				{!wizardFind ? (
 					<p
 						className='character-click'
-						onClick={e => clickWizard(e.clientY, e.clientX)}></p>
+						onClick={e => clickWizard(e.clientY, e.clientX)}>
+						Wizard
+					</p>
 				) : (
 					''
 				)}
