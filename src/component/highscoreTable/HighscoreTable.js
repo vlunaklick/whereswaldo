@@ -1,6 +1,7 @@
 import React from 'react'
 import { convertSeconds } from '../../helpers/converterSeconds'
 import './HighscoreTable.css'
+import ButtonP from '../ButtonP/ButtonP'
 
 const HighscoreTable = ({
 	topScorer = arrayTest,
@@ -33,9 +34,7 @@ const HighscoreTable = ({
 					<p className='highscore-left-concursant'>
 						{topScorer[4][0] + ': ' + convertSeconds(topScorer[4][1])}
 					</p>
-					<button className='highscore-btn-restart' onClick={restartGame}>
-						Restart
-					</button>
+					<ButtonP text='Restart' purpouse={restartGame} />
 				</div>
 				<div className='highscore-rigth'>
 					<div className='highscore-rigth-combo'>

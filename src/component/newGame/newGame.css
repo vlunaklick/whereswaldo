@@ -1,0 +1,36 @@
+:root{
+    --background-color-container: #ffffff;
+    --container-border: #e3eaf1;
+    --shadow-color-newgame: 211deg 30% 18%;
+    --shadow-elevation-medium-newgame:
+    0px 0.6px 0.7px hsl(var(--shadow-color-newgame) / 0.36),
+    0px 1.9px 2.1px -0.8px hsl(var(--shadow-color-newgame) / 0.36),
+    -0.1px 4.8px 5.4px -1.7px hsl(var(--shadow-color-newgame) / 0.36),
+    -0.1px 11.8px 13.3px -2.5px hsl(var(--shadow-color-newgame) / 0.36);
+}
+
+.new-container{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--background-color-container);
+    border: 2px solid var(--container-border);
+    border-radius: 5px;
+    box-shadow: var(--shadow-elevation-medium-newgame);
+}
+
+.new-paragraph{
+    text-align: center;
+}
+
+.new-title{
+    font-size: 1.3rem;
+}
+
+.new-text{
+    display: flex;
+    flex-direction: column;
+}

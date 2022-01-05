@@ -3,6 +3,7 @@
     --background-color-container: #ffffff;
     --container-border: #e3eaf1;
     --division-border: #f1f4f7;
+    
     --btn-bg: #14919B;
     --btn-hover: #044E54;
     --btn-color: #ffffff;
@@ -17,10 +18,6 @@
     0px 1.9px 2.1px -0.8px hsl(var(--shadow-color-highscore) / 0.36),
     -0.1px 4.8px 5.4px -1.7px hsl(var(--shadow-color-highscore) / 0.36),
     -0.1px 11.8px 13.3px -2.5px hsl(var(--shadow-color-highscore) / 0.36);
-    --shadow-elevation-low-highscore:
-    0px 0.6px 0.7px hsl(var(--shadow-color-highscore) / 0.34),
-    0px 1px 1.1px -1.2px hsl(var(--shadow-color-highscore) / 0.34),
-    0px 2.4px 2.7px -2.5px hsl(var(--shadow-color-highscore) / 0.34);
 
 }
 
@@ -33,11 +30,14 @@
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity .5s ease-in;
+    transition: opacity .5s ease-in,
+    left .5s ease-in;
+    left: -100%
 }
 
 .highscore-background-show{
     opacity: 1;
+    left: 0;
 }
 
 .highscore-container{
@@ -68,23 +68,6 @@
     justify-content: space-evenly;
     align-items: center;
     gap: 1rem;
-}
-
-.highscore-btn-restart{
-    border: none;
-    outline: none;
-    color: var(--btn-color);
-    background-color: var(--btn-bg);
-    transition: background-color .2s ease-in,
-    box-shadow .2s ease-in;
-    width: 100px;
-    height: 35px;
-    cursor: pointer
-}
-
-.highscore-btn-restart:hover{
-    background-color: var(--btn-hover);
-    box-shadow: var(--shadow-elevation-low-highscore);
 }
 
 .highscore-rigth-input{

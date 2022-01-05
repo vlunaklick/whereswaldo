@@ -5,6 +5,7 @@ import HeaderPage from './component/header/Header'
 import { useState } from 'react'
 import useTimer from './hooks/useTimer'
 import HighscoreTable from './component/highscoreTable/HighscoreTable'
+import NewGame from './component/newGame/NewGame'
 
 function App() {
 	let [wallyFound, changeWallyFind] = useState(false)
@@ -13,7 +14,8 @@ function App() {
 
 	let [record, changeRecord] = useState(false)
 
-	let [showHigh, changeShowHigh] = useState(true)
+	let [showHigh, changeShowHigh] = useState(false)
+	let [showStart, changeShowStart] = useState(true)
 
 	let [timer, start, stop, reset] = useTimer(0)
 
@@ -22,7 +24,9 @@ function App() {
 		changeWilmaFound(false)
 		changeWizardFound(false)
 		reset()
+		changeRecord(false)
 		changeShowHigh(false)
+		changeShowStart(true)
 	}
 
 	const correctMsg = value => {
@@ -49,6 +53,11 @@ function App() {
 		})
 	}
 
+	const startGame = () => {
+		changeShowStart(false)
+		start()
+	}
+
 	return (
 		<div className='container-app'>
 			<ToastContainer
@@ -63,17 +72,22 @@ function App() {
 				pauseOnHover={false}
 				limit={1}
 			/>
+
 			<HeaderPage
 				timer={timer}
 				wallyFind={wallyFound}
 				wilmaFind={wilmaFound}
 				wizardFind={wizardFound}
 			/>
+
+			<NewGame starting={startGame} showing={showStart} />
+
 			<HighscoreTable
 				timer={timer}
 				restartGame={restartGame}
 				showing={showHigh}
 				record={record}
+				changeRecord={changeRecord}
 			/>
 		</div>
 	)
