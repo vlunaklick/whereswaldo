@@ -5,17 +5,20 @@ import wilma from '../../images/wilma.png'
 import wizard from '../../images/wizard.gif'
 import './Header.css'
 
-const HeaderPage = ({
-	timer = 0,
-	wallyFind = false,
-	wilmaFind = false,
-	wizardFind = false,
-}) => {
+const HeaderPage = ({ timer = 0, wallyFind, wilmaFind, wizardFind }) => {
 	let timerGood = convertSeconds(timer)
+
+	const printthings = () => {
+		console.log(wallyFind)
+		console.log(wilmaFind)
+		console.log(wizardFind)
+	}
 
 	return (
 		<header className='header-container'>
-			<h1 className='header-title'>Where's Waldo?</h1>
+			<h1 className='header-title' onClick={printthings}>
+				Where's Waldo?
+			</h1>
 			<p className='header-timer'>{timerGood}</p>
 			<div className='header-images-container'>
 				<img

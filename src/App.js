@@ -79,7 +79,6 @@ function App() {
 			errorMsg()
 		}
 		changeImageClicked(false)
-		checkEnd()
 	}
 
 	const checkClickWilma = (top, left) => {
@@ -90,7 +89,6 @@ function App() {
 			errorMsg()
 		}
 		changeImageClicked(false)
-		checkEnd()
 	}
 
 	const checkClickWizard = (top, left) => {
@@ -101,7 +99,6 @@ function App() {
 			errorMsg()
 		}
 		changeImageClicked(false)
-		checkEnd()
 	}
 
 	const checkEnd = () => {
@@ -110,6 +107,8 @@ function App() {
 			changeShowHigh(true)
 		}
 	}
+
+	useEffect(() => checkEnd(), [wallyFound, wilmaFound, wizardFound])
 
 	useEffect(() => {
 		db.collection('maps')

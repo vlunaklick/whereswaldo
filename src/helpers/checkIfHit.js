@@ -2,7 +2,7 @@ const checkIfHit = (top, left, array) => {
 	let firstTrue = false,
 		secondTrue = false
 
-	if (top > parseInt(array[1][0]) - 25 && parseInt(array[1][1]) + 25 > top) {
+	if (top > parseInt(array[1][0]) - 40 && parseInt(array[1][1]) + 40 > top) {
 		firstTrue = true
 	}
 
