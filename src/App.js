@@ -10,6 +10,7 @@ import ImageGame from './component/ImageGame/ImageGame'
 import db from './firebase/config'
 import checkIfHit from './helpers/checkIfHit'
 import arrayHighscores from './helpers/doArrayHighscore'
+import checkRecord from './helpers/checkRecord'
 
 function App() {
 	let [imgSrc, changeImgSrc] = useState('')
@@ -32,7 +33,7 @@ function App() {
 	let [wilmaArray, changeWilmaArray] = useState([])
 	let [wizardArray, changeWizardArray] = useState([])
 
-	let [record, changeRecord] = useState(false)
+	let [record, changeRecord] = useState(true)
 
 	let [showHigh, changeShowHigh] = useState(false)
 	let [showStart, changeShowStart] = useState(true)
@@ -123,6 +124,9 @@ function App() {
 		if (wallyFound && wilmaFound && wizardFound) {
 			stop()
 			changeShowHigh(true)
+			if (checkRecord(tabHighscore, timer)) {
+				changeRecord(true)
+			}
 		}
 	}
 
