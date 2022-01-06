@@ -3,7 +3,14 @@ import { convertSeconds } from '../../helpers/converterSeconds'
 import './HighscoreTable.css'
 import ButtonP from '../ButtonP/ButtonP'
 
-const HighscoreTable = ({ topScorer, timer, restartGame, showing, record }) => {
+const HighscoreTable = ({
+	topScorer,
+	timer,
+	restartGame,
+	showing,
+	record,
+	submitScore,
+}) => {
 	let classBackground = showing
 		? 'highscore-background highscore-background-show'
 		: 'highscore-background'
@@ -46,6 +53,7 @@ const HighscoreTable = ({ topScorer, timer, restartGame, showing, record }) => {
 								maxLength='3'
 								className='highscore-rigth-input'
 							/>
+							<ButtonP text='Submit' purpouse={submitScore} />
 						</div>
 					) : (
 						''

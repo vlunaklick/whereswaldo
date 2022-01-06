@@ -130,6 +130,13 @@ function App() {
 		}
 	}
 
+	const submitScore = () => {
+		let inputM = document.getElementById('addRecord')
+		let newScore = [inputM.value.toUpperCase(), timer]
+
+		changeRecord(false)
+	}
+
 	useEffect(() => checkEnd(), [wallyFound, wilmaFound, wizardFound])
 
 	useEffect(() => {
@@ -202,6 +209,7 @@ function App() {
 				record={record}
 				changeRecord={changeRecord}
 				topScorer={tabHighscore}
+				submitScore={submitScore}
 			/>
 		</div>
 	)
