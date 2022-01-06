@@ -1,5 +1,4 @@
 const arrayHighscores = array => {
-	console.log(array[1])
 	return [
 		[array[0].stringValue, array[1].integerValue],
 		[array[2].stringValue, array[3].integerValue],

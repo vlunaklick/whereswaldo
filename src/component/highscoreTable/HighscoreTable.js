@@ -8,8 +8,6 @@ const HighscoreTable = ({ topScorer, timer, restartGame, showing, record }) => {
 		? 'highscore-background highscore-background-show'
 		: 'highscore-background'
 
-	console.log(topScorer)
-
 	return (
 		<div className={classBackground}>
 			<div className='highscore-container'>
