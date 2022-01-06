@@ -11,6 +11,8 @@ import db from './firebase/config'
 import checkIfHit from './helpers/checkIfHit'
 import arrayHighscores from './helpers/doArrayHighscore'
 import checkRecord from './helpers/checkRecord'
+import uploadToDB from './helpers/uploadToDB'
+import renewScore from './helpers/renewScore'
 
 function App() {
 	let [imgSrc, changeImgSrc] = useState('')
@@ -132,9 +134,12 @@ function App() {
 
 	const submitScore = () => {
 		let inputM = document.getElementById('addRecord')
-		let newScore = [inputM.value.toUpperCase(), timer]
-
-		changeRecord(false)
+		if (inputM.value !== '' && inputM.value.length === 3) {
+			let newScore = [inputM.value.toUpperCase(), timer]
+			changeTabHighscore(renewScore(tabHighscore, newScore))
+			uploadToDB(tabHighscore)
+			changeRecord(false)
+		}
 	}
 
 	useEffect(() => checkEnd(), [wallyFound, wilmaFound, wizardFound])
@@ -145,7 +150,7 @@ function App() {
 			.then(maps => {
 				maps.forEach(map => {
 					let place = map._delegate._document.data.value.mapValue.fields
-					let arrayHi = place.topscorers.arrayValue.values
+					let arrayHi = place.topscorers.mapValue.fields
 					changeImgSrc(place.map.stringValue)
 					changeWallyArray([
 						place.wally.arrayValue.values[0].integerValue,
