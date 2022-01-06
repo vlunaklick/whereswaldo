@@ -3,16 +3,12 @@ import { convertSeconds } from '../../helpers/converterSeconds'
 import './HighscoreTable.css'
 import ButtonP from '../ButtonP/ButtonP'
 
-const HighscoreTable = ({
-	topScorer = arrayTest,
-	timer,
-	restartGame,
-	showing,
-	record,
-}) => {
+const HighscoreTable = ({ topScorer, timer, restartGame, showing, record }) => {
 	let classBackground = showing
 		? 'highscore-background highscore-background-show'
 		: 'highscore-background'
+
+	console.log(topScorer)
 
 	return (
 		<div className={classBackground}>
@@ -63,11 +59,3 @@ const HighscoreTable = ({
 }
 
 export default HighscoreTable
-
-let arrayTest = [
-	['VYA', 1687],
-	['VYA', 1687],
-	['VYA', 1687],
-	['VYA', 1687],
-	['VYA', 1687],
-]

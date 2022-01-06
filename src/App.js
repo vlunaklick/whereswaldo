@@ -9,9 +9,18 @@ import NewGame from './component/newGame/NewGame'
 import ImageGame from './component/ImageGame/ImageGame'
 import db from './firebase/config'
 import checkIfHit from './helpers/checkIfHit'
+import arrayHighscores from './helpers/doArrayHighscore'
 
 function App() {
 	let [imgSrc, changeImgSrc] = useState('')
+
+	let [tabHighscore, changeTabHighscore] = useState([
+		['VYA', 1687],
+		['VYA', 1687],
+		['VYA', 1687],
+		['VYA', 1687],
+		['VYA', 1687],
+	])
 
 	let [imageClicked, changeImageClicked] = useState(false)
 
@@ -125,6 +134,7 @@ function App() {
 			.then(maps => {
 				maps.forEach(map => {
 					let place = map._delegate._document.data.value.mapValue.fields
+					let arrayHi = place.topscorers.arrayValue.values
 					changeImgSrc(place.map.stringValue)
 					changeWallyArray([
 						place.wally.arrayValue.values[0].integerValue,
@@ -138,6 +148,7 @@ function App() {
 						place.wizard.arrayValue.values[0].integerValue,
 						place.wizard.arrayValue.values[1].integerValue,
 					])
+					changeTabHighscore(arrayHighscores(arrayHi))
 				})
 			})
 	}, [])
@@ -186,6 +197,7 @@ function App() {
 				showing={showHigh}
 				record={record}
 				changeRecord={changeRecord}
+				topScorer={tabHighscore}
 			/>
 		</div>
 	)
