@@ -5,7 +5,7 @@
 
 > In this project I recreated the famouse game "Where's Waldo?". It was mainly done with React, JavaScript, pure CSS and Firebase so the highscores, maps and coordinates of characters could be saved in a database.
 
-### ✨ [Live View](https://vlunaklick.github.io/shopping_cart/)
+### ✨ [Live View](https://whereswaldoven.herokuapp.com/)
 
 ## Author
 
