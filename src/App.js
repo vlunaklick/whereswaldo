@@ -137,10 +137,11 @@ function App() {
 		if (inputM.value !== '' && inputM.value.length === 3) {
 			let newScore = [inputM.value.toUpperCase(), timer]
 			changeTabHighscore(renewScore(tabHighscore, newScore))
-			uploadToDB(tabHighscore)
 			changeRecord(false)
 		}
 	}
+
+	useEffect(() => uploadToDB(tabHighscore), [tabHighscore])
 
 	useEffect(() => checkEnd(), [wallyFound, wilmaFound, wizardFound])
 
